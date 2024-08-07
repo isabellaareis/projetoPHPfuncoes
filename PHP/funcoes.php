@@ -43,7 +43,7 @@
         $i = 0;
         $resultado = "";
         for($i; $i<=10; $i++){
-            $resultado .= "<br>".$num1." * ".$i." = ".($num1*$i);
+            $resultado .= "\n" .$num1." * ".$i." = ".($num1*$i);
         }//fim do for
         return $resultado;
     }//fim da tabuada
@@ -171,7 +171,7 @@
         }
         for ($i = 1; $i <= $num; $i++) {
             if ($i % 2 == 0){
-                $msg.="<br>".$i;
+                $msg.="\n".$i;
             }
         }
         return $msg;
@@ -180,6 +180,7 @@
     function mediaCincoNumeros($num1, $num2, $num3, $num4, $num5){//17
         $soma = $num1 + $num2 + $num3 + $num4 + $num5;
         $media = $soma / 5;
+        return $media;
     }//fim media dos cinco numeros
 
     function contar_vogais($palavra) {//exercicio14
@@ -243,7 +244,7 @@
             return "Erro. Informe um valor positivo.";
         }else{
             for($i = 1; $i <= $num; $i++){
-                echo $i . "<br>";
+                echo $i . "\n";
             }
         }
     }
@@ -262,13 +263,13 @@
         $i = 1;
         for($i; $i <= $num; $i++){
             if(numeroPrimo($i) != "Não é primo"){
-                $numPrimos .= "<br>".$i;
+                $numPrimos .= "\n".$i;
             }
         }
         return $numPrimos;
     }
 
-    function saldo($conta,$saldo,$debito,$credito){//15
+    function saldo($saldo,$debito,$credito){//15
         if(($debito < 0) || ($credito < 0)){
             return "informe um valor positivo!!";
         }else{
@@ -389,13 +390,131 @@
             $c = $a + $b;
             $a = $b;
             $b = $c;
-            $resu .= "<br>".$c;
+            $resu .= "\n".$c;
         }
         return $resu;
     }
 
-    function mediaAlunos()
+    function mediaAlunos($num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8, $num9, $num10, $num11, $num12, $num13, $num14, $num15, $num16, $num17, $num18, $num19, $num20){//22
+        
+        $resul = ($num1 + $num2 + $num3 + $num4 + $num5 + $num6 + $num7 + $num8 + $num9 + $num10 + $num11 + $num12 + $num13 + $num14 + $num15 + $num16 + $num17 + $num18 + $num19 + $num20) / 20;
+        return $resul;
+    }
+    
+    function reajusteSalario($salario, $reajuste){
+        if($salario <= 4236){
+            $reajuste = ($salario * 0.50) + $salario;
+        }
+        if($salario > 4236 & $salario<= 14120){
+            $reajuste = ($salario * 0.20) + $salario;
+        }
+        if($salario > 14120 & $salario <= 28240){
+            $reajuste = ($salario * 0.15) + $salario;
+        }
+        if($salario > 28240){
+            $reajuste = ($salario * 0.10) + $salario;
+        }
 
+        return $reajuste;
+    }
+
+    function volumeLata($altura, $raio){
+        $volume = 3.14 * ($raio * $raio) * $altura;
+        return $volume;
+    }
+
+    function mediaMaior($num1,$num2,$num3,$num4){
+        if(( $num1 > $num2) && ($num1 > $num3)&&($num1 > $num4)){
+            echo "o maior valor é: $num1";
+        }else if (( $num2 > $num1) && ($num2 > $num3)&&($num2 > $num4)){
+                echo "o maior valor é: $num2";
+            }else if (( $num3 > $num1) && ($num3 > $num2)&&($num3 > $num4)){
+                echo "o maior valor é: $num3";
+        }else{
+            echo "o maior valor é: $num4";
+        }
+        if(($num1 < 0) && ($num2 < 0) && ($num3 < 0) && ($num4 < 0)){
+            return "Não é possível realizar a conta,insira um valor maior que zero";
+        }else{
+        $result = (( $num1 + $num2 + $num3 + $num4 ) / 4);
+        echo " \n o valor da média é: $result";
+        }
+    }  
+    
+    function circunferencia($raio){
+        $area = 3.14 * ($raio * $raio);
+        return $area;
+    }
+    
+    function litros($tempo, $velocidade){
+        if($tempo < 0 || $velocidade < 0){
+            echo "Informe valores positivos!";
+        }else{
+            $distancia = $tempo * $velocidade;
+            $litros = $distancia / 12;
+            
+            echo " \n Velocidade Média: " . $velocidade . " km/h";
+            echo " \n Tempo Gasto na Viagem: " . $tempo . " horas";
+            echo " \n Distância Percorrida: " . $distancia . " km";
+            echo " \n Quantidade de Litros Utilizados: " . $litros . " litros";
+        }
+    }
+
+    function salarioBruto($ht, $vh, $pd){
+        if( $ht <0 || $vh <0 || $pd < 0){
+            echo "Informe valores positivos!";
+        }else{
+            $sb = $ht * $vh;
+            $td = ($pd / 100) * $sb;
+            $sl = $sb - $td;
+
+            echo " \n Horas Trabalhadas: " . $ht . " horas";
+            echo " \n Salário Bruto: " . $sb . " reais";
+            echo " \n Desconto: " . $td . " reais";
+            echo " \n Salário Liquído: " . $sl . " reais";
+        }
+    }
+
+    function prefeitura($salario1,$salario2,$salario3,$filho1,$filho2,$filho3){//24
+        $contador =0;
+        $i =0;
+
+        if(( $salario1 > $salario2) && ($salario1 > $salario3)){
+            echo "o maior valor é: $salario1";
+         }else if (( $salario2 > $salario1) && ($salario2 > $salario3)){
+                 echo "o maior valor é: $salario2";
+             }else{
+                 echo "o maior valor é: $salario3";
+         }
+         if($salario1 < 150){
+            $contador++;
+         }
+         if($salario2 < 150){
+            $contador++;
+         }
+         if($salario3 < 150){
+            $contador++;
+         }
+               
+        $percentual = (($contador * 100)/3);
+        echo "\n O valor percentual é: $percentual";
+               
+         if(($salario1 < 0) && ($salario2 < 0) && ($salario3 < 0)){
+             return "Não é possível realizar a conta,insira um valor maior que zero";
+         }else{
+         $result = (( $salario1 + $salario2 + $salario3 ) / 3);
+         echo "\n o valor da média salário é: $result";
+       }
+       if(($filho1 < 0) && ($filho2 < 0) && ($filho3 < 0)){
+        return "Não é possível realizar a conta,insira um valor maior que zero";
+     }else{
+        $filhos = (( $filho1 + $filho2 + $filho3 ) / 3);
+        echo "\n o valor da média de filhos é: $filhos";
+     }                                            
+}  
+    
+
+    /*
     //reultados
     echo "<br>A soma dos números é: ".somar(5, 8);
     echo "<br>A subtração dos números é: ".subtrair(9, 15);
@@ -432,13 +551,8 @@
     echo "<br>a soma dos numeros menores que 40 é: ".somaNumerosMenor(80, 90, 60, 90, 90, 90, 90, 20, 20, 20);
     echo "<br>a meida dos numeros e 15 a 100 é: ".mediaArtmetica();
     echo "<br>Sequencia de fibonacci".fibonacci(5)."<BR>";
-    
+    echo "<br>A média dos 20 alunos é: ".mediaAlunos(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+    */
 
-
-//strlen("") tamanho de um texto
-
-
-
-
-
+    //strlen("") tamanho de um texto;
 ?>
